@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: XKCD Comic Gutenberg Block 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/xkcd-comic-gutenberg-block\n"
+"Last-Translator: Hector Prieto <ha.prieto.alonso@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-06-22T13:04:00+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: es\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: xkcd-cgt\n"
+
+#. Plugin Name of the plugin
+msgid "XKCD Comic Gutenberg Block"
+msgstr "Bloque de Gutenberg para Comic XKCD"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/priethor/xkcd-comic-gutenberg-block"
+msgstr ""
+
+#. Description of the plugin
+msgid "A Gutenberg block that dynamically renders a XKCD Comic"
+msgstr "Un bloque de Gutenberg que carga dinámicamente un cómic de XKCD"
+
+#. Author of the plugin
+msgid "priethor"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.linkedin.com/in/priethor/"
+msgstr ""
+
+#: build/index.js:122
+#: src/index.js:16
+msgid "XKCD Comic"
+msgstr "Cómic XKCD"
+
+#: build/index.js:159
+#: src/index.js:58
+msgid "Network response was not ok."
+msgstr "La respuesta de la conexión no fue satisfactoria."
+
+#: build/index.js:216
+#: src/index.js:128
+msgid "Comic settings"
+msgstr "Configuración del cómic"
+
+#: build/index.js:219
+#: src/index.js:131
+msgid "Display most recent comic?"
+msgstr "¿Mostrar cómic más reciente?"
+
+#. translators: %2$s is replaced with the number of translations
+#: build/index.js:230
+#: src/index.js:148
+msgid "Comic number (max %d)"
+msgstr "Número de cómic (máx. %d)"

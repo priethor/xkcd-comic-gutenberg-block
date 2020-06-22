@@ -1,0 +1,6 @@
+node_modules
+build
+vendor
+## Uncomment line below if you prefer to
+## keep compiled files out of version control
+# dist/

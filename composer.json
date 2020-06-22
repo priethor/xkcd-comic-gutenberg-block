@@ -1,0 +1,18 @@
+{
+    "require": {
+        "composer/installers": "^1.9"
+    },
+    "require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
+		"squizlabs/php_codesniffer": "^3.5",
+        "wp-coding-standards/wpcs": "^2.3",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "phpcompatibility/phpcompatibility-wp": "*",
+		"sirbrillig/phpcs-variable-analysis": "^2.8",
+		"wp-phpunit/wp-phpunit": "^5.4"
+	},
+	"scripts": {
+		"format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
+		"lint": "phpcs --standard=phpcs.xml.dist"
+	}
+}

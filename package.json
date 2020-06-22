@@ -1,0 +1,43 @@
+{
+	"name": "priethor-sample-gutenberg-block",
+	"version": "1.0.0",
+	"description": "Sample Gutenberg Block",
+	"author": "@priethor",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"WordPress",
+		"Gutenberg",
+		"block",
+		"xkcd"
+	],
+	"homepage": "",
+	"repository": "",
+	"bugs": "",
+	"main": "build/index.js",
+	"devDependencies": {
+		"@prettier/plugin-php": "^0.14.2",
+		"@wordpress/eslint-plugin": "^7.0.0",
+		"@wordpress/scripts": "^11.0.0",
+		"babel-eslint": "^10.1.0",
+		"eslint": "^7.3.0",
+		"eslint-config-wordpress": "^2.0.0",
+		"eslint-plugin-eslint-comments": "^3.2.0",
+		"eslint-plugin-import": "^2.21.2",
+		"eslint-plugin-jest": "^23.16.0",
+		"eslint-plugin-jsx-a11y": "^6.3.1",
+		"eslint-plugin-prettier": "^3.1.4",
+		"eslint-plugin-react": "^7.20.0",
+		"eslint-plugin-wordpress": "^0.1.0",
+		"prettier": "npm:wp-prettier@^2.0.5"
+	},
+	"scripts": {
+		"build": "wp-scripts build",
+		"format:js": "wp-scripts format-js",
+		"lint:js": "wp-scripts lint-js",
+		"lint:md:docs": "wp-scripts lint-md-docs",
+		"lint:md:js": "wp-scripts lint-md-js",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"packages-update": "wp-scripts packages-update",
+		"start": "wp-scripts start"
+	}
+}
