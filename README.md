@@ -14,12 +14,18 @@ Depending on the selected options, it can either display the most recent comic o
 - [x] Displays a fixed comic selected by ID.
 - [x] In edit mode, checks for new comics only every 60s.
 
-## Other
+## Considerations
 
 - Conforms to [WordPress coding guidelines](https://developer.wordpress.org/block-editor/contributors/develop/coding-guidelines/), implementing and passing linting scripts:
     - ESLint rules by extending `plugin:@wordpress/eslint-plugin/recommended`. Validates included JavaScript, Markdown and CSS files.
     - PHP rules by setting a PHP_CodeSniffer configuration file based on the [WordPress sample](https://github.com/WordPress/WordPress-Coding-Standards/blob/develop/phpcs.xml.dist.sample).
 - Contains default and Spanish (es-ES) translations.
+
+## Installation
+1. Download the repository under wp-content/plugins
+2. Run `npm install`
+3. Run `npm run build`
+4. Activate the plugin in the WordPress Admin Panel under `Plugins` -> `Installed Plugins`
 
 ## TODOs
 
