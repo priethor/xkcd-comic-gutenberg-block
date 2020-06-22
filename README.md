@@ -14,12 +14,13 @@ Depending on the selected options, it can either display the most recent comic o
 - [x] Displays a fixed comic selected by ID.
 - [x] In edit mode, checks for new comics only every 60s.
 
-## Considerations
+## Other considerations
 
 - Conforms to [WordPress coding guidelines](https://developer.wordpress.org/block-editor/contributors/develop/coding-guidelines/), implementing and passing linting scripts:
     - ESLint rules by extending `plugin:@wordpress/eslint-plugin/recommended`. Validates included JavaScript, Markdown and CSS files.
     - PHP rules by setting a PHP_CodeSniffer configuration file based on the [WordPress sample](https://github.com/WordPress/WordPress-Coding-Standards/blob/develop/phpcs.xml.dist.sample).
 - Contains default and Spanish (es-ES) translations.
+- In order to specify the comic ID in the Sidebar, it tries to display the experimental [Number Control](https://developer.wordpress.org/block-editor/components/number-control/), if available. If the Gutenberg plugin is not installed and only the version shipped with WordPress is available, it displays a normal TextControl instead.
 
 ## Installation
 1. Download the repository under wp-content/plugins
