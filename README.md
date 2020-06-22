@@ -25,4 +25,4 @@ Depending on the selected options, it can either display the most recent comic o
 
 - [ ] Convert CSS to SCSS.
 - [ ] Add more options, like showing the comic date or not with a setting, with alignment options.
-- [ ] 
+- [ ] Create a WordPress endpoint to fetch commits from the official XKCD API using WordPress directly as proxy to avoid CORS and depending on a third-party API.
