@@ -5,10 +5,11 @@ import React from 'react'; // To avoid undeclared variable down
 import { registerBlockType } from '@wordpress/blocks';
 import { __, sprintf } from '@wordpress/i18n';
 import {
-	ToggleControl,
 	__experimentalNumberControl as NumberControl,
 	PanelBody,
+	Spinner,
 	TextControl,
+	ToggleControl,
 } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/editor';
 
@@ -48,6 +49,10 @@ registerBlockType( 'priethor/xkcd-comic-gutenberg-block', {
 			setAttributes,
 		} = props;
 
+		// Logical functions
+		const isRightComicLoaded = () =>
+			comic !== undefined && comic.num === selectedComicNumber;
+
 		function fetchComic( comicNumber = 'latest' ) {
 			return window
 				.fetch( 'https://xkcd.now.sh/?comic=' + comicNumber )
@@ -62,7 +67,7 @@ registerBlockType( 'priethor/xkcd-comic-gutenberg-block', {
 				} );
 		}
 
-		// Checks for new comics, to know which is the higheset ID and latest comic
+		// Checks for new comics, to know which is the highest comic ID
 		function checkForUpdates() {
 			const checkUpdateTime = new Date().getTime();
 			if (
@@ -92,19 +97,21 @@ registerBlockType( 'priethor/xkcd-comic-gutenberg-block', {
 			} );
 		}
 
-		checkForUpdates();
+		// Loads the comic if required
+		function loadComic() {
+			if ( isRightComicLoaded() ) {
+				return;
+			}
 
-		// If there is no comic loaded, we load the most recent one
-		if ( comic === undefined || comic.num !== selectedComicNumber ) {
 			fetchComic( selectedComicNumber ).then( ( newComic ) =>
 				setAttributes( {
 					comic: newComic,
 					selectedComicNumber: newComic.num,
 				} )
 			);
-			return [ __( 'Loading', 'xkcd_cgb' ) ];
 		}
 
+		// Callback that fires when the editor changes the comic number
 		function onComicNumberChange( newValue ) {
 			// If the editor is a normal TextControl, it will arrive as a string
 			let newComicNumber = parseInt( newValue );
@@ -119,13 +126,42 @@ registerBlockType( 'priethor/xkcd-comic-gutenberg-block', {
 			setAttributes( {
 				selectedComicNumber: newComicNumber,
 				lastUpdate: undefined,
+				comic: undefined,
 			} );
 		}
+
+		checkForUpdates();
+		loadComic();
 
 		// If the experimental NumberControl is available, we use it instead of the TextControl
 		const ComicIdControl = React.isValidElement( <NumberControl /> )
 			? NumberControl
 			: TextControl;
+
+		function XkcdComicTitle( attributes ) {
+			return (
+				<div className="xkcd-comic__title">{ attributes.title }</div>
+			);
+		}
+
+		// Comic JSX representation
+		function XkcdComic() {
+			// Return early if we don't have the data for the right comic
+			if ( ! isRightComicLoaded() ) {
+				return [
+					<XkcdComicTitle
+						key="title"
+						title={ __( 'Loading…', 'xkcd-cgb' ) }
+					/>,
+					<Spinner key="image" />,
+				];
+			}
+
+			return [
+				<XkcdComicTitle key="title" title={ comic.title } />,
+				<img key="image" src={ comic.img } alt={ comic.alt } />,
+			];
+		}
 
 		return [
 			<InspectorControls key="panel">
@@ -137,6 +173,7 @@ registerBlockType( 'priethor/xkcd-comic-gutenberg-block', {
 							setAttributes( {
 								isCurrentComicSelected: value,
 								lastUpdate: undefined,
+								comic: undefined,
 							} )
 						}
 					/>
@@ -166,9 +203,8 @@ registerBlockType( 'priethor/xkcd-comic-gutenberg-block', {
 					) }
 				</PanelBody>
 			</InspectorControls>,
-			<div key="result" className="xkcd-comic">
-				<div className="xkcd-comic__title"> { comic.title } </div>
-				<img src={ comic.img } alt={ comic.alt } />
+			<div key="comic" className="xkcd-comic">
+				<XkcdComic />
 			</div>,
 		];
 	},

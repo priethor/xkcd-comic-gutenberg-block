@@ -4,9 +4,9 @@ This WordPress plugin adds a Gutenberg plugin that embeds a [XKCD comic](https:/
 
 Depending on the selected options, it can either display the most recent comic or the selected one, by ID, as the API doesn't allow any other kind of searching or filtering (e.g. by date).
 
-![alt text][logo]
+![How to use the block ][block-adding-gif]
 
-[logo]: docs/adding-block.gif "Logo Title Text 2"
+[block-adding-gif]: docs/adding-block.gif "Block adding GIF"
 
 ## Features
 
@@ -23,13 +23,15 @@ Depending on the selected options, it can either display the most recent comic o
 - In order to specify the comic ID in the Sidebar, it tries to display the experimental [Number Control](https://developer.wordpress.org/block-editor/components/number-control/), if available. If the Gutenberg plugin is not installed and only the version shipped with WordPress is available, it displays a normal TextControl instead.
 
 ## Installation
+
 1. Download the repository under wp-content/plugins
 2. Run `npm install`
 3. Run `npm run build`
 4. Activate the plugin in the WordPress Admin Panel under `Plugins` -> `Installed Plugins`
 
 ## TODOs
-- [ ] Improve the comic loading animation, both in the block itself and the Sidebar
+
+- [x] Improve the comic loading animation, both in the block itself and the Sidebar
 - [ ] Convert CSS to SCSS.
 - [ ] Add more options, like showing the comic date or not with a setting, with alignment options.
 - [ ] Create a WordPress endpoint to fetch commits from the official XKCD API using WordPress directly as proxy to avoid CORS and depending on a third-party API.

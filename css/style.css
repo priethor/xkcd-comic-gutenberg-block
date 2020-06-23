@@ -1,4 +1,9 @@
-.xkcd-comic__title {
+.xkcd-comic {
 	font-size: 24px;
 	font-weight: bold;
+	text-align: center;
+}
+
+.xkcd-comic img {
+	margin: auto;
 }

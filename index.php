@@ -72,7 +72,7 @@ function xkcd_comic_gutenberg_block_render_callback( $attributes ) {
 		return "Comic couldn't be loaded";
 	}
 
-	$output  = sprintf( '<div class="xkcd-comic__title">' );
+	$output  = sprintf( '<div class="xkcd-comic">' );
 	$output .= sprintf( '<div className="xkcd-comic__title">%s</div>', $comic['title'] );
 	$output .= sprintf( '<img src="%s" alt="%s"/>', $comic['img'], $comic['alt'] );
 	$output .= sprintf( '</div>' );
