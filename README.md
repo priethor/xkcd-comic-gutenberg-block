@@ -2,7 +2,7 @@
 
 This WordPress plugin adds a Gutenberg block that embeds a [XKCD comic](https://xkcd.com/) using a [proxy API](https://xkcd.now.sh/) of the [official XKCD API](https://xkcd.com/json.html) in order to avoid CORS.
 
-Depending on the selected options, it can either display the most recent comic or the selected one, by ID, as the API doesn't allow any other kind of searching or filtering (e.g. by date).
+Depending on the selected options, it can either display the most recent comic or a fixed one, indicated by its ID, as the API doesn't allow any other kind of searching or filtering (e.g. by date).
 
 ![How to use the block ][block-adding-gif]
 
